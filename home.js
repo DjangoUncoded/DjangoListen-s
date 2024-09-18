@@ -16,7 +16,7 @@ function setPlay(svg) {
   `;
   svg.clickState = false;
   audio.pause(); // Pause the audio when switching to play state
-  MasterPlay.setAttribute("src", "./Images/play.svg");
+  MasterPlay.setAttribute("src", "./play.svg");
 }
 
 function setPause(svg) {
@@ -26,7 +26,7 @@ function setPause(svg) {
   `;
   svg.clickState = true;
   audio.play(); // Play the audio when switching to pause state
-  MasterPlay.setAttribute("src", "./Images/pause.svg");
+  MasterPlay.setAttribute("src", "./pause.svg");
 }
 
 // Helper function to format time (mm:ss)
@@ -81,11 +81,11 @@ function resetTimestamps() {
 MasterPlay.addEventListener('click', function() {
   if (audio.paused || audio.currentTime <= 0) {
     audio.play();
-    MasterPlay.setAttribute("src", "./Images/pause.svg");
+    MasterPlay.setAttribute("src", "./pause.svg");
     updateTimestamp();
   } else {
     audio.pause();
-    MasterPlay.setAttribute("src", "./Images/play.svg");
+    MasterPlay.setAttribute("src", "./play.svg");
   }
 });
 
@@ -104,7 +104,7 @@ ProgressBar.addEventListener('change', function() {
 // Navigate to the previous song
 MasterBack.addEventListener("click", function() {
   song = (song - 1 + totalSongs) % totalSongs; // Decrease the song index and wrap around if necessary
-  audio.src = `./Songs/Song${song + 1}.mp3`;
+  audio.src = `./Song${song + 1}.mp3`;
   audio.play();
   resetTimestamps();
   if (currentActive) {
@@ -118,7 +118,7 @@ MasterBack.addEventListener("click", function() {
 // Navigate to the next song
 MasterNext.addEventListener("click", function() {
   song = (song + 1) % totalSongs; // Increase the song index and wrap around if necessary
-  audio.src = `./Songs/Song${song + 1}.mp3`;
+  audio.src = `./Song${song + 1}.mp3`;
   audio.play();
   resetTimestamps();
   if (currentActive) {
