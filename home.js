@@ -51,7 +51,7 @@ for (var i = 0; i < Svgs.length; i++) {
   // Create a closure around `i` to capture the correct index for each SVG button
   Svgs[i].addEventListener('click', (function(i) {
     return function() {
-      audio.src = `./Songs/Song${i + 1}.mp3`; // Set the correct audio file
+      audio.src = `./Song${i + 1}.mp3`; // Set the correct audio file
       song = i; // Track the current song index
       resetTimestamps(); // Reset all timestamps
       if (this.clickState) {
